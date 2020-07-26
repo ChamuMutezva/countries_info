@@ -32,7 +32,12 @@ function App() {
     return country.toLocaleLowerCase().includes(searchItem.toLocaleLowerCase())
   })
   // console.log(filterCountries)
-  const displayItems = filterCountries.map((country, idx) => <h3 key={idx}>{country}</h3>)
+  const displayItems = filterCountries.map((country, idx) =>
+    <div key={idx} className="countryDetails">
+      <h3>{country}</h3>
+      <input type="button" value="show" />
+    </div>
+    )
 
   console.log(displayItems.length)
   if (filterCountries.length > 10) {
@@ -50,11 +55,19 @@ function App() {
     } else if (equalToOne) {
       console.log(countries)
       const resultCountry = countries.find(country => country.name.toLocaleLowerCase().includes(searchItem.toLocaleLowerCase()))
-      console.log(resultCountry)
+      console.log(resultCountry.languages)
+      const language = resultCountry.languages.map((lang, idx) => <li key={idx}>{lang.name}</li>)
+      console.log(language)
+
       return <div>
-        <h3>{resultCountry.name}</h3>
-        <h4>{resultCountry.capital}</h4>
-        <img src={resultCountry.flag} alt="" className="countryFlag"/>
+        <h3>Country {resultCountry.name}</h3>
+        <h4>Capital {resultCountry.capital}</h4>
+        <h4>Population {resultCountry.population}</h4>
+        <h5> Languages</h5>
+        <ul >
+          {language}
+        </ul>
+        <img src={resultCountry.flag} alt="" className="countryFlag" />
       </div>
 
       // return displayItems

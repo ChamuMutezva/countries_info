@@ -15,3 +15,9 @@ img.countryFlag {
   margin: auto;
   width: 50%;
 }
+.countryDetails {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 10px;
+}
