@@ -54,6 +54,7 @@ function App() {
       return <div>
         <h3>{resultCountry.name}</h3>
         <h4>{resultCountry.capital}</h4>
+        <img src={resultCountry.flag} alt="" className="countryFlag"/>
       </div>
 
       // return displayItems
