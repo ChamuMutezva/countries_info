@@ -31,13 +31,21 @@ function App() {
     // console.log(country, searchItem)
     return country.toLocaleLowerCase().includes(searchItem.toLocaleLowerCase())
   })
+  const showCounty = (event) => {
+    const ctyName = event.target.closest("div").children[0].innerHTML.toLocaleLowerCase();
+    console.log(event.target)
+    console.log(ctyName)
+   setSearchItem(ctyName)
+   // greaterThanOne = true;
+    details()
+  }
   // console.log(filterCountries)
   const displayItems = filterCountries.map((country, idx) =>
     <div key={idx} className="countryDetails">
       <h3>{country}</h3>
-      <input type="button" value="show" />
+      <input type="button" value="show"onClick={showCounty} />
     </div>
-    )
+  )
 
   console.log(displayItems.length)
   if (filterCountries.length > 10) {
@@ -47,6 +55,7 @@ function App() {
   } else if (filterCountries.length === 1) {
     equalToOne = true
   }
+
   const details = () => {
     if (greaterThanTen) {
       return <h3>Too many mathces specify another filter</h3>
@@ -90,11 +99,7 @@ function App() {
           <h3>{searchItem}</h3>
         </div>
         <div>
-
           {details()}
-
-
-
         </div>
       </header>
     </div >
