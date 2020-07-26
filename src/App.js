@@ -20,18 +20,18 @@ function App() {
     //console.log(countries);
   }, [])
   const handleOnChange = (event) => {
-    console.log(event.target.value)
+    //  console.log(event.target.value)
     setSearchItem(event.target.value)
   }
 
 
-  const listCountries = countries.map(country => country.name.toLocaleLowerCase())
-  console.log(listCountries)
+  const listCountries = countries.map(country => country.name)
+  // console.log(countries)
   const filterCountries = listCountries.filter(country => {
-    console.log(country, searchItem)
-    return country.includes(searchItem.toLocaleLowerCase())
+    // console.log(country, searchItem)
+    return country.toLocaleLowerCase().includes(searchItem.toLocaleLowerCase())
   })
-  console.log(filterCountries)
+  // console.log(filterCountries)
   const displayItems = filterCountries.map((country, idx) => <h3 key={idx}>{country}</h3>)
 
   console.log(displayItems.length)
@@ -44,11 +44,19 @@ function App() {
   }
   const details = () => {
     if (greaterThanTen) {
-     return <h3>Too many mathces specify another filter</h3>
+      return <h3>Too many mathces specify another filter</h3>
     } else if (greaterThanOne) {
       return displayItems
     } else if (equalToOne) {
-      return displayItems
+      console.log(countries)
+      const resultCountry = countries.find(country => country.name.toLocaleLowerCase().includes(searchItem.toLocaleLowerCase()))
+      console.log(resultCountry)
+      return <div>
+        <h3>{resultCountry.name}</h3>
+        <h4>{resultCountry.capital}</h4>
+      </div>
+
+      // return displayItems
     }
   }
 
@@ -68,11 +76,11 @@ function App() {
           <h3>{searchItem}</h3>
         </div>
         <div>
-         
-            {details()}
-          
 
-         
+          {details()}
+
+
+
         </div>
       </header>
     </div >
