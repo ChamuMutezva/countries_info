@@ -17,8 +17,12 @@ img.countryFlag {
 }
 .countryDetails {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   column-gap: 10px;
+}
+li {
+  list-style: none;
 }

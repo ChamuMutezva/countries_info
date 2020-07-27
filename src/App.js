@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
 
@@ -80,21 +80,21 @@ function App() {
 
   const details = () => {
     if (greaterThanTen) {
-      return <h3>Too many mathces specify another filter</h3>
+      return <h3 className="messageTitle">Too many matches specify another filter</h3>
     } else if (greaterThanOne) {
       return displayItems
     } else if (equalToOne) {
       console.log(countries)
       const resultCountry = countries.find(country => country.name.toLocaleLowerCase().includes(searchItem.toLocaleLowerCase()))
       console.log(resultCountry.languages)
-      const language = resultCountry.languages.map((lang, idx) => <li key={idx}>{lang.name}</li>)
+      const language = resultCountry.languages.map((lang, idx) => <li key={idx}>{idx + 1}: {lang.name}</li>)
       console.log(language)
 
       return <div>
         <div className="countryDetails">
-          <h3>Country {resultCountry.name}</h3>
-          <h4>Capital {resultCountry.capital}</h4>
-          <h4>Population {resultCountry.population}</h4>
+          <h3>Country: {resultCountry.name}</h3>
+          <h4>Capital: {resultCountry.capital}</h4>
+          <h4>Population: {resultCountry.population}</h4>
           <h5> Languages</h5>
           <ul >
             {language}
@@ -104,8 +104,8 @@ function App() {
         <div className="weatherDetails">
           <h3>Weather for {weather.location.name}</h3>
           <h4>Temperature {weather.current.temperature} Degrees Celcius</h4>
-          <img src={weather.current.weather_icons} alt="weather"/>
-    <h4>wind speed {weather.current.wind_speed} mph Direction {weather.current.wind_dir}</h4>
+          <img src={weather.current.weather_icons} alt="weather" />
+          <h4>wind speed {weather.current.wind_speed} mph Direction {weather.current.wind_dir}</h4>
         </div>
       </div>
 
@@ -119,10 +119,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Hello Chamu</h1>
+        <h1>Country details and weather information</h1>
 
         <div>
-          <label>
+          <label className="filterCountries">
             Find countries
           <input type="search" onChange={handleOnChange} />
           </label>

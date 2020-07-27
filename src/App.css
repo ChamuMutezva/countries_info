@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+label.filterCountries {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+h3.messageTitle {
+  padding: 10px;
+}
+
+input[type="search"] {
+  padding: 10px;
+  border-radius: 10px;
+  /* outline: none; */
+}
+
+input[type="search"]:hover {
+  background-color: gray;
+  cursor: pointer;
+}
