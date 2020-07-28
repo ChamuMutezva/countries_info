@@ -17,7 +17,7 @@ function App() {
   //get country details
   useEffect(() => {
     console.log("useEffect in action");
-    axios.get("http://restcountries.eu/rest/v2/all")
+    axios.get("https://restcountries.eu/rest/v2/all")
       .then(response => {
         console.log("promise fullfilled");
         setCountries(response.data)
