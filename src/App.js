@@ -43,7 +43,7 @@ function App() {
   const weatherCountry = filterCountries[0]
   useEffect(() => {
     console.log("this is the second useEffect in action")
-    axios.get(`http://api.weatherstack.com/current?access_key=${weatherApi}&query=${weatherCountry}`)
+    axios.get(`https://api.weatherstack.com/current?access_key=${weatherApi}&query=${weatherCountry}`)
       .then(response => {
         setWeather(response.data)
       })
