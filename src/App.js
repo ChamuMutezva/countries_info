@@ -17,7 +17,7 @@ function App() {
   //get country details
   useEffect(() => {
     console.log("useEffect in action");
-    axios.get("https://restcountries.eu/rest/v2/all")
+    axios.get("http://restcountries.eu/rest/v2/all")
       .then(response => {
         console.log("promise fullfilled");
         setCountries(response.data)
@@ -43,7 +43,7 @@ function App() {
   const weatherCountry = filterCountries[0]
   useEffect(() => {
     console.log("this is the second useEffect in action")
-    axios.get(`https://api.weatherstack.com/current?access_key=${weatherApi}&query=${weatherCountry}`)
+    axios.get(`http://api.weatherstack.com/current?access_key=${weatherApi}&query=${weatherCountry}`)
       .then(response => {
         setWeather(response.data)
       })
