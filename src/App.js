@@ -47,6 +47,11 @@ function App() {
       .then(response => {
         setWeather(response.data)
       })
+      .catch( error => {
+        alert(error)
+      }
+        
+      )
   }, [weatherCountry])
 
   // ********************************* //
