@@ -1,5 +1,7 @@
 ## Website url
 https://country-weather-details.netlify.app
+
+``` "important: weatherstack api free plan - does not allow the use of https. hence deployed apps cannot fetch data due to error" ```
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
