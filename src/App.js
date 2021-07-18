@@ -21,7 +21,7 @@ function App() {
       .then(response => {
         console.log("promise fullfilled");
         setCountries(response.data)
-        //console.log(countries)
+        console.log(response.data)
       })
     //console.log(countries);
   }, [])
@@ -41,18 +41,21 @@ function App() {
 
   //get weather details 
   const weatherCountry = filterCountries[0]
+ 
   useEffect(() => {
+   // console.log(weatherCountry.capital)
     console.log("this is the second useEffect in action")
     axios.get(`http://api.weatherstack.com/current?access_key=${weatherApi}&query=${weatherCountry}`)
       .then(response => {
         setWeather(response.data)
+        console.log(response.data)
       })
       .catch( error => {
         alert(error)
       }
         
       )
-  }, [weatherCountry])
+  }, [weatherApi, weatherCountry])
 
   // ********************************* //
 
